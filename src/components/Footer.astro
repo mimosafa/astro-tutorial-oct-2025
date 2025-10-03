@@ -1,0 +1,16 @@
+---
+import Social from "./Social.astro";
+const username = "mimosafa";
+---
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+    <Social platform="x" username={username} />
+    <Social platform="github" username={username} />
+</footer>
