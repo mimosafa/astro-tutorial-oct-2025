@@ -1,5 +1,17 @@
 ---
+import '../styles/global.css';
 
+const pageTitle = "私について";
+
+const identity = {
+	name: "Mimosa",
+	role: "Web Developer",
+	bio: "I love creating beautiful and functional web applications.",
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "Astro", "React"];
+
+const skillColor = "green";
 ---
 
 <html lang="en">
@@ -8,15 +20,29 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About Me</title>
+		<title>{pageTitle}</title>
+		<style define:vars={{skillColor}}>
+			h1 {
+				color: purple;
+				font-size: 4rem;
+			}
+			.skill {
+				color: var(--skillColor);
+				font-weight: bold;
+			}
+		</style>
 	</head>
 	<body>
 		<a href="/">Home</a>
 		<a href="/about/">About</a>
 		<a href="/blog/">Blog</a>
-		<h1>About Me</h1>
-		<p>This is the about page of my Astro site.</p>
-		<p>Here you can find more information about me and my work.</p>
-		<p>Feel free to reach out if you have any questions!</p>
+		<h1>{pageTitle}</h1>
+		<p>This is the about page of {identity.name}'s Astro site.</p>
+		<p>{identity.name} is a {identity.role}.</p>
+		<p>{identity.bio}</p>
+		<h2>Skills</h2>
+		<ul>
+			{skills.map((skill) => <li class="skill">{skill}</li>)}
+		</ul>
 	</body>
 </html>
